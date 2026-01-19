@@ -1,4 +1,4 @@
-<img src="preview/git.webp">
+<img src="preview/preview.jpg" width="830">   
 
 ### [Viena](https://viena.vercel.app/) is a Vue radio player.   
   
