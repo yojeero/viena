@@ -28,10 +28,10 @@
         "url": "https://www.antenne.de/webradio/"
     },
     {
-        "name": "city23",
-        "artist": "Premium Pop",
+        "name": "antenne bayern",
+        "artist": "Fresh",
         "cover": "./images/5.webp",
-        "src": "https://edge61.stream.maxfive.com/max5-city23",
-        "url": "https://www.city23.at/"
+        "src": "https://stream.antenne.de/fresh/stream/aacp",
+        "url": "https://www.antenne.de/webradio/"
     }
 ]
