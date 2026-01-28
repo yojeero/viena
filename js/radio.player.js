@@ -192,7 +192,7 @@ window.addEventListener("keydown", (e) => {
 
 // ---------- INIT ----------
 (async function init() {
-  const res = await fetch("js/tracks.json");
+  const res = await fetch("tracks.json");
   tracks = await res.json();
 
   audio.src = tracks[0].src;
