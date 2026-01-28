@@ -1,16 +1,15 @@
 <img src="preview/preview.jpg" width="830">   
 
-### [Viena](https://viena.vercel.app/) is a Vue radio player.   
+### [Viena](https://viena.vercel.app/) is a Vanilla radio player.   
   
 - Instant one-click 5 radio playback   
 - Responsive & retina-ready   
 - Tailwind v4   
-- Vue 3 powered    
-- Customize stations and covers   
+- Vanilla JS powered    
+- Customize stations   
 - Live audio visualizer   
 - Full keyboard control   
 - Easy station switching   
-- Remembers station & volume   
 - Built-in live clock   
 - Fast and lightweight    
 
@@ -41,12 +40,6 @@ Switch easily between radio stations or tracks
 Auto-plays the next station when a stream ends   
 Remembers your last choice automatically
 
-#### Remembers You   
-
-Saves your last played station   
-Restores your preferred volume on every visit   
-Pick up right where you left off   
-
 #### Live Clock Interface   
 
 Always-visible current time and day   
@@ -66,7 +59,6 @@ Starts instantly without lag
 
 #### Modern Web Technology   
 
-Built with Vue 3   
 Powered by native browser audio capabilities   
 No plugins or external players required   
 

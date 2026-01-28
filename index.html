@@ -14,351 +14,140 @@
 
   <link rel="icon" type="image/svg+xml" href="./images/fav.svg" />
 
-  <link rel="preload" href="./fonts/jost.woff2" as="font" type="font/woff2" crossorigin="anonymous">
-  <link rel="preload" href="./fonts/tulpen-one.woff2" as="font" type="font/woff2" crossorigin="anonymous">
+  <link rel="preload" href="./fonts/poppins-500.woff2" as="font" type="font/woff2" crossorigin="anonymous">
+  <link rel="preload" href="fonts/mabget.woff2" as="font" type="font/woff2" crossorigin="anonymous">
 
   <!-- style CSS -->
   <link rel="stylesheet" href="./css/style.css">
 
 </head>
 
-<body class="
-    flex 
-    subpixel-antialiased 
-    items-center justify-center 
-    min-h-screen 
-    pb-safe 
-    bg-[#f1f0e5]
-    ">
+<body class="body-bg">
 
-  <!-- tailwind Loader -->
-  <div class="
-      loader 
-      fixed inset-0 
-      flex items-center justify-center 
-      bg-stone-100 
-      transition-opacity duration-300 
-      z-50
-      ">
+   <div class="loader"><span id="digits"></span></div>
 
-    <div class="
-        w-8 h-8 
-        border-2 border-gray-200 border-t-rose-600 
-        rounded-full 
-        animate-spin
-        ">
+    <div class="pic-bg">
+      <img src="./images/color.svg" alt="" class="viena-color" />
+      <img src="./images/cool.svg" alt="" class="viena-pic" /> 
     </div>
 
-  </div>
+  <div id="app" class="app">
 
-  <!-- Container -->
-  <div id="app" tabindex="0" class="
-        size-full 
-        flex m-auto items-center justify-center 
-        z-10
-        ">
+    <div class="player-wrapper">     
 
-    <!-- live bg  -->
-    <div class="
-                  hidden md:grid auto-cols-max grid-flow-col
-                  absolute   
-                  size-full    
-                  select-none 
-                  overflow-hidden
-                  ">
+    <span class="right-buttons top-[15%] h-10 ml-0.5"></span>
+    <span class="right-buttons top-[30%] h-24 ml-0.5"></span>
 
-      <img src="./images/1.webp" class="
-                      h-auto min-w-full 
-                      " />
-      <img src="./images/2.webp" class="
-                      h-auto min-w-full
-                      " />
-      <img src="./images/3.webp" class="
-                      h-auto min-w-full
-                      " />
-      <img src="./images/4.webp" class="
-                      h-auto min-w-full 
-                      " />
-      <img src="./images/5.webp" class="
-                      h-auto min-w-full 
-                      " />
+    <div class="player"> 
 
-      <img :src="currentTrack.cover" class="
-                      h-auto min-w-full             
-                      object-cover
-                      " />
+      <div class="grille">
+          <div class="dots mx-0.5"></div>
+          <div class="dots mx-0.5"></div>
+          <div class="dots mx-0.5"></div>
+          <div class="dots mx-0.5"></div>
+          <div class="dots mx-0.5"></div>  
+      </div>
 
-      <img src="./images/buro.webp" class="
-                      h-dvh  
-                      object-cover" />
-
-      <!-- SVG -->
-      <img src="./images/viena.svg" class="
-          absolute
-          bottom-0
-          left-1/3
-          -translate-x-1/3
-          h-120
-          z-5
-          pointer-events-none
-        " />
-
-    </div>
-
-    <!-- Player -->
-    <div class="
-      relative 
-      z-50
-      w-dvw h-dvh 
-      md:w-95 md:h-195  
-      bg-[#eff5f5]       
-      flex flex-col
-      overflow-hidden 
-      md:rounded-4xl 
-      md:shadow-[0_0_22px] shadow-stone-400/44 -shadow-spread-2 
-      transition-all duration-300
-      ">
-
-      <!-- Top -->
-      <div class="
-      w-full 
-      h-12 
-      px-8 
-      flex items-center justify-between 
-      rounded-t-4xl
-      ">
+        <div class="player-top px-8">    
 
         <a href="https://github.com/yojeero/" target="_blank">
 
-          <svg class="
-                    w-4.5 h-4.5 
-                    fill-current text-[#90c8ce] hover:text-indigo-400 
-                    transition
-                    ">
-            <use xlink:href="./images/icon.svg#github"></use>
+          <svg class="social-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+            stroke-linejoin="round">
+            <path
+              d="M15 22v-4a4.8 4.8 0 0 0-1-3.5c3 0 6-2 6-5.5.08-1.25-.27-2.48-1-3.5.28-1.15.28-2.35 0-3.5 0 0-1 0-3 1.5-2.64-.5-5.36-.5-8 0C6 2 5 2 5 2c-.3 1.15-.3 2.35 0 3.5A5.403 5.403 0 0 0 4 9c0 3.5 3 5.5 6 5.5-.39.49-.68 1.05-.85 1.65-.17.6-.22 1.23-.15 1.85v4" />
+            <path d="M9 18c-4.51 2-5-2-7-2" />
           </svg>
 
         </a>
-
-        <div class="flex items-center justify-center">
-
-          <span v-if="isPlaying" class="
-                    w-1.5 h-1.5 
-                    bg-red-500 
-                    rounded-full 
-                    mr-2 
-                    animate-live-record
-                    ">
-          </span>
-
-          <div class="
-                    text-center text-xs uppercase 
-                    transition-colors duration-300
-                    " :class="{
-                        'text-gray-700 ': !isPlaying, 
-                        'text-gray-500 tracking-widest': isPlaying}">
-
-            viena
-          </div>
-
-        </div>
 
         <a :href="currentTrack.url" target="_blank">
 
-          <svg class="
-                  w-4.5 h-4.5 
-                  fill-current text-[#90c8ce] hover:text-indigo-400 
-                  transition
-                  ">
-            <use xlink:href="./images/icon.svg#radio"></use>
+          <svg class="social-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+            stroke-linejoin="round">
+            <path d="M4.9 16.1C1 12.2 1 5.8 4.9 1.9" />
+            <path d="M7.8 4.7a6.14 6.14 0 0 0-.8 7.5" />
+            <circle cx="12" cy="9" r="2" />
+            <path d="M16.2 4.8c2 2 2.26 5.11.8 7.47" />
+            <path d="M19.1 1.9a9.96 9.96 0 0 1 0 14.1" />
+            <path d="M9.5 18h5" />
+            <path d="m8 22 4-11 4 11" />
           </svg>
 
         </a>
 
       </div>
 
-      <!-- Main -->
-      <div class="
-        flex-1 flex flex-col items-center justify-center 
-        rounded-b-4xl border-b-4 border-b-[#90c8ce]
-        bg-[#f1f0e5] pb-6       
-        ">
+    <div class="player-body pb-6">
 
-        <!-- Clock -->
-        <div class="
-                w-full 
-                text-center tracking-[3px] font-[Tulpen_One] uppercase 
-                select-none
-                ">
-          <div class="
-                  text-4xl text-gray-800
-                  ">
-            {{ clockTime }}
-          </div>
+    <div class="clock-wrap">
+      <div class="clock-time" id="clockTime"></div>
+      <div class="clock-day" id="clockDay"></div>
+    </div>
 
-          <div class="
-                  text-xl text-gray-700
-                  ">{{ clockDay }}
-          </div>
-
-        </div>
-
-        <!-- Cover -->
-        <div class="
-                relative   
-                w-[64%] h-50 
-                my-12
-                border border-amber-50/70 
-                rounded-2xl 
-                overflow-hidden
-                select-none
-                ">
-
-          <transition name="cover-appear">
-
-            <div :key="currentTrackIndex" class="
-                  cover-inner 
-                  absolute inset-0
-                  ">
-
-              <img :src=" currentTrack.cover" class="
-                      cover
-                      w-full h-full
-                      object-cover
-                      object-top
-                      rounded-2xl
-                      " />
-            </div>
-
-          </transition>
-
-        </div>
-
-        <!-- Info / Progress -->
-        <div class="
-              w-full
-              flex flex-col
-              select-none
-              ">
-          <div class="
-              text-center text-md uppercase text-gray-800
-              ">
-            {{ currentTrack.name }}
-          </div>
-
-          <canvas ref="canvasRef" class="
-              mx-auto
-              w-[80%]
-              h-10
-              my-4
-              select-none
-              ">
-          </canvas>
-
-        </div>
-
-        <!-- Controls -->
-        <div class="
-                flex items-center justify-center 
-                w-full 
-                mt-6 mb-6
-                ">
-
-          <!-- Prev -->
-          <button @click="prevTrack" class="
-                  w-12 h-12 
-                  flex items-center justify-center
-                  rounded-full 
-                  hover:bg-amber-50            
-                  transition-all duration-300               
-                  cursor-pointer
-                  ">
-            <svg class="
-                    w-12 h-12 
-                    text-[#90c8ce]/60
-                    hover:text-indigo-300                             
-                    fill-current            
-                    ">
-              <use xlink:href="./images/icon.svg#icon-prev"></use>
+    <div class="cover-wrap flip-next my-12" id="coverWrap">
+       <div class="cover-inner">
+            <!-- SVG CD -->
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 2122 2122" class="cover-image">
+              <path
+                d="M1060.663 1908.797c142.802 0 277.368-35.294 395.427-97.631 195.11-102.995 345.188-279.87 413.012-493.363 25.797-81.095 39.693-167.501 39.693-257.142 0-468.419-379.714-848.137-848.132-848.137-136.3 0-265.073 32.137-379.177 89.277C490.834 397.24 341.18 562.406 265.912 763.855c-34.521 92.37-53.387 192.386-53.387 296.806.001 468.423 379.714 848.136 848.138 848.136z"
+                fill="#444183" />
+              <path
+                d="M786.211 506.875l.008.016c83.063-41.347 176.694-64.639 275.779-64.639 342.271 0 619.737 277.472 619.737 619.743 0 63.412-9.545 124.591-27.24 182.202l.02.008 166.21 58.209c24.255-76.238 37.318-157.476 37.318-241.753 0-440.391-356.995-797.381-797.38-797.381-128.148 0-249.206 30.211-356.488 83.933l82.023 159.639.013.023zM1060.663 1858.041c134.255 0 260.767-33.176 371.763-91.784l-80.396-156.439-.01-.018-.011-.021c-86.536 45.911-185.225 71.954-290.011 71.954-342.277 0-619.743-277.466-619.743-619.738 0-77.885 14.409-152.394 40.638-221.063l-.034-.012-.01-.004-169.377-59.299c-32.457 86.844-50.195 180.874-50.195 279.043 0 440.391 356.996 797.381 797.386 797.381z"
+                fill="#2bb7be" />
+              <circle transform="rotate(-17.873 1060.797 1060.772)" cx="1060.661" cy="1060.661" fill="#444183" r="108.187" />
+              <path d="M946.014 817.881c34.772-16.45 73.625-25.685 114.646-25.685 148.268 0 268.465 120.195 268.465 268.465 0 23.016-2.907 45.351-8.355 66.67l.019.006 333.705 116.86c17.695-57.611 27.24-118.79 27.24-182.202 0-342.271-277.466-619.743-619.737-619.743-99.085 0-192.715 23.292-275.779 64.639l159.788 310.976.008.014zM1190.58 1295.6c-38.503 21.338-82.781 33.526-129.919 33.526-148.27 0-268.465-120.197-268.465-268.465 0-36.908 7.457-72.072 20.932-104.08L482.893 840.933c-26.229 68.668-40.638 143.178-40.638 221.063 0 342.271 277.466 619.738 619.743 619.738 104.786 0 203.475-26.044 290.011-71.954l-161.416-314.153-.013-.027z" fill="#ffd548"/><path d="M786.198 506.851l-82.023-159.639c-179.243 89.725-319.937 245.009-390.703 434.405l169.377 59.299c55.667-145.746 164.77-265.084 303.349-334.065z" fill="#86cfe7"/><path d="M946.014 817.881l-.007-.013-159.788-310.976-.008-.016-.013-.024c-138.579 68.98-247.682 188.318-303.349 334.065l.01.004.034.012 330.235 115.649c25.68-61.002 73.261-110.495 132.886-138.701z" fill="#fffbd6"/><path d="M1654.516 1244.205c-48.571 158.159-158.725 289.342-302.486 365.613l80.396 156.439c183.436-96.839 324.533-263.122 388.299-463.843l-166.209-58.209z" fill="#86cfe7"/><path d="M1654.516 1244.205l-.021-.008-333.705-116.86-.019-.006c-18.49 72.352-66.387 132.91-130.191 168.27l.013.025 161.416 314.153.011.021.01.018c143.761-76.271 253.914-207.454 302.486-365.613z" fill="#fffbd6"/><path d="M1060.661 792.196c-41.022 0-79.874 9.235-114.646 25.685-59.626 28.206-107.206 77.699-132.886 138.7-13.475 32.008-20.932 67.172-20.932 104.08 0 148.268 120.195 268.465 268.465 268.465 47.139 0 91.416-12.188 129.919-33.526 63.804-35.36 111.701-95.917 130.191-168.27 5.448-21.318 8.355-43.654 8.355-66.67-.001-148.269-120.198-268.464-268.466-268.464z" fill="#e72f75"/><circle transform="rotate(-17.873 1060.797 1060.772)" cx="1060.661" cy="1060.661" fill="#444183" r="108.187"/><path d="M1181.07 754.664c128.813 36.936 218.268 152.148 221.856 286.258.858 32.044 50.753 32.171 49.89 0-4.182-156.316-108.107-291.247-258.482-334.367-30.921-8.865-44.121 39.259-13.264 48.109z" fill="#fff"/><path d="M1181.713 602.981c218.124 34.197 375.624 225.907 364.691 446.967-1.588 32.092 48.307 32.01 49.89 0 11.922-241.081-162.477-457.629-401.32-495.076-31.409-4.924-44.939 43.142-13.261 48.109zM990.167 1395.226c-139.476-22.646-246.1-127.932-270.226-267.205-5.469-31.576-53.557-18.19-48.107 13.262 26.76 154.489 150.263 276.916 305.071 302.053 31.408 5.098 44.923-42.967 13.262-48.11z" fill="#fff"/><path d="M973.791 1544.599c-208.692-40.945-366.396-208.384-396.248-418.774-4.49-31.659-52.57-18.19-48.107 13.264 32.059 225.948 207.379 409.726 431.093 453.617 31.363 6.154 44.79-41.921 13.262-48.107z" fill="#fff"/>
             </svg>
-          </button>
+          </div>
+    </div>
 
-          <!-- Play / Stop -->
-          <button @click="togglePlay" class="
-                      mx-5 
-                      w-18 h-18  
-                      rounded-full 
-                      cursor-pointer 
-                      flex items-center justify-center 
-                      transition-all duration-300 
-                      backdrop-blur-md bg-indigo-300/80 hover:bg-rose-500/80 focus:bg-indigo-400/80 focus:shadow-indigo-400/50 
-                      shadow-lg shadow-indigo-300/40 hover:shadow-rose-500/50 active:scale-95
-                      " :class="{ 'scale-105 pulse-music': isPlaying }">
+    <div class="info-progress">
+      <div class="track-name" id="trackName"></div>
+      <canvas id="visualizer" class="progress-canvas my-4"></canvas>
+    </div>
 
-            <svg class="
-                      w-18 h-18 
-                      text-stone-100 
-                      fill-current                       
-                      ">
-              <use xlink:href="./images/icon.svg#p-stop" v-if="isPlaying"></use>
-              <use xlink:href="./images/icon.svg#p-play" v-else></use>
-            </svg>
+    <div class="controls-wrap mt-6 mb-6">
 
-          </button>
+      <button id="prevBtn" class="np-button">
+        <svg class="np-svg" viewBox="0 0 20 20"><path fill="none" stroke="currentColor" stroke-width="1.3" d="m13 16-6-6 6-6"/></svg>    
+      </button>
 
-          <!-- Next -->
-          <button @click="nextTrack" class="
-                  w-12 h-12
-                  flex items-center justify-center
-                  rounded-full 
-                  hover:bg-amber-50
-                  transition-all duration-300               
-                  cursor-pointer
-                    ">
-            <svg class="
-                      w-12 h-12 
-                      text-[#90c8ce]/60  hover:text-indigo-300                         
-                      fill-current  
-                      ">
-              <use xlink:href="./images/icon.svg#icon-next"></use>
-            </svg>
-          </button>
+      <button class="player-btn mx-6" id="playBtn">
 
-        </div>
-      </div>
+        <svg id="playIcon" class="play-svg" viewBox="0 0 256 256">
+          <path fill="currentColor"
+            d="M231.36 116.19L87.28 28.06a14 14 0 0 0-14.18-.27A13.69 13.69 0 0 0 66 39.87v176.26a13.69 13.69 0 0 0 7.1 12.08a14 14 0 0 0 14.18-.27l144.08-88.13a13.82 13.82 0 0 0 0-23.62m-6.26 13.38L81 217.7a2 2 0 0 1-2.06 0a1.78 1.78 0 0 1-1-1.61V39.87a1.78 1.78 0 0 1 1-1.61A2.06 2.06 0 0 1 80 38a2 2 0 0 1 1 .31l144.1 88.12a1.82 1.82 0 0 1 0 3.14" />
+        </svg>
 
-      <!-- Bottom-->
-      <div class="
-              absolute bottom-0 left-0 
-              w-full 
-              h-12 
-              rounded-b-4xl             
-              bg-[#90c8ce] backdrop-blur-md   
-              flex items-center justify-center             
-              select-none 
-              transition-transform duration-300 ease-in-out
-              " :style="{ transform: isPlaying ? 'translateY(0)' : 'translateY(100%)' }">
+        <svg id="stopIcon" class="play-svg hidden" viewBox="0 0 256 256">
+          <path fill="currentColor"
+            d="M200 42H56a14 14 0 0 0-14 14v144a14 14 0 0 0 14 14h144a14 14 0 0 0 14-14V56a14 14 0 0 0-14-14m2 158a2 2 0 0 1-2 2H56a2 2 0 0 1-2-2V56a2 2 0 0 1 2-2h144a2 2 0 0 1 2 2Z" />
+        </svg>
 
-        <div v-if="isPlaying" class="           
-                    text-md text-slate-50 text-shadow-white capitalize tracking-[2px]      
-                    ">
-          {{ currentTrack.artist }}
-        </div>
+      </button>
 
-      </div>
+      <button id="nextBtn" class="np-button">
+        <svg class="np-svg" viewBox="0 0 20 20">
+          <path fill="none" stroke="currentColor" stroke-width="1.3" d="m7 4 6 6-6 6" />
+        </svg>
+      </button>
 
     </div>
+
+    </div>
+
+    <div class="bottom-panel" id="bottomPanel">
+      <div class="artist-name" id="artistName"></div>
+    </div>
+
   </div>
+</div>
+</div>
 
-  <!-- Vue 3 CDN -->
-  <!-- <script src="https://cdn.jsdelivr.net/npm/vue@3.5.26/dist/vue.global.prod.min.js"></script> -->
-  <script src="js/vue.global.prod.min.js"></script>
-
-  <!-- App -->
-  <script src="js/vue.player.js"></script>
+<!-- JS -->
 
   <!-- loader hide -->
-  <script>
+ <script>
     window.addEventListener("load", () => {
       const loader = document.querySelector(".loader");
       if (!loader) return;
@@ -367,6 +156,8 @@
     });
   </script>
 
-</body>
+    <!-- App -->
+<script src="js/radio.player.js"></script>
 
+  </body>
 </html>
