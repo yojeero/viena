@@ -1,0 +1,37 @@
+[
+    {
+        "name": "antenne bayern",
+        "artist": "Pop XXL",
+        "cover": "./images/d1.webp",
+        "src": "https://stream.antenne.de/pop-xxl/stream/aacp",
+        "url": "https://www.antenne.de/webradio/"
+    },
+    {
+        "name": "antenne bayern",
+        "artist": "80er Hits",
+        "cover": "./images/d2.webp",
+        "src": "https://stream.antenne.de/80er-kulthits/stream/aacp",
+        "url": "https://www.antenne.de/webradio/"
+    },
+    {
+        "name": "antenne bayern",
+        "artist": "Relax",
+        "cover": "./images/d3.webp",
+        "src": "https://stream.antenne.de/relax/stream/aacp",
+        "url": "https://www.antenne.de/webradio/"
+    },
+    {
+        "name": "antenne bayern",
+        "artist": "Lounge",
+        "cover": "./images/d4.webp",
+        "src": "https://stream.antenne.de/lounge/stream/aacp",
+        "url": "https://www.antenne.de/webradio/"
+    },
+    {
+        "name": "antenne bayern",
+        "artist": "Fresh",
+        "cover": "./images/d5.webp",
+        "src": "https://stream.antenne.de/fresh/stream/aacp",
+        "url": "https://www.antenne.de/webradio/"
+    }
+]
