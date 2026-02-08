@@ -10,6 +10,8 @@
   <title>Yopy</title>
 
   <meta name="description" content="radio, player, audio, web, vanilla" />
+  <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
+
   <link rel="icon" type="image/svg+xml" href="./images/fav.svg" />  
 
   <!-- style CSS -->
@@ -17,7 +19,7 @@
   
 </head>
 
-<body class="body-bg loading">
+<body class="loading">
 
   <div class="loader"><div class="line"></div></div>
 
@@ -26,9 +28,9 @@
       <img src="./images/cup.png" alt="cup-svg" class="cup" />   
     </div>
 
-    <div class="player"> 
+    <div class="player gap-6"> 
 
-        <div class="top-panel mt-4 px-8">    
+        <div class="top-panel px-4 md:px-10 mb-4">    
 
         <a href="https://github.com/yojeero/" target="_blank">
 
@@ -63,27 +65,27 @@
 
     <div class="player-body">
 
-    <div class="clock-wrap">    
+    <div class="clock-wrap gap-1">    
       <div class="clock-time" id="clockTime"></div>
       <div class="clock-day" id="clockDay"></div>
     </div>
     
-      <div class="cover-wrap my-20 lg:my-8">
+      <div class="cover-wrap mt-10 mb-12">
         <div class="cover-inner" id="coverInner">  
             <img src="./images/w1.png" class="cover-image" id="coverImage" alt="cover" />    
         </div>
       </div>
     
-      <div class="info-wrap">
+      <div class="info-wrap gap-1">
         <div class="artist-name" id="artistName"></div>
         <div class="track-name" id="trackName"></div>
       </div> 
 
-    <div class="canvas-panel mt-10">
+    <div class="canvas-panel mb-2 mt-8">
      <canvas id="visualizer" class="canvas"></canvas>
     </div>
 
-    <div class="controls-wrap py-6">
+    <div class="controls-wrap">
 
       <button id="prevBtn" class="np-button">
         <svg class="np-svg" viewBox="0 0 24 24">
