@@ -1,12 +1,11 @@
 <img src="preview/preview.jpg" width="830">   
 
-### [VIENA PLAYER](https://viena.vercel.app/) is a lightweight, modern web radio player.     
+### [YOPY PLAYER](https://yopy.vercel.app/) is a lightweight web radio player.     
   
 - Instant one-click radio  
-- Responsive & Retina-ready    
+- Responsive    
 - Tailwind v4   
 - Vanilla JS  
-- Customize stations   
 - Live audio visualizer   
 - Full keyboard control   
 - Easy station switching   
@@ -14,53 +13,54 @@
 - Fast and lightweight    
 
 <img alt="" src="https://img.shields.io/badge/tailwindcss-%2338B2AC.svg?style=for-the-badge&logo=tailwind-css&logoColor=white" height="20"/><img alt="" src="https://img.shields.io/badge/vuejs-%2335495e.svg?style=for-the-badge&logo=vuedotjs&logoColor=%234FC08D" height="20"/><img alt="" src="https://img.shields.io/badge/vercel-%23000000.svg?style=for-the-badge&logo=vercel&logoColor=white" height="20"/><img alt="" src="https://img.shields.io/badge/html5-%23E34F26.svg?style=for-the-badge&logo=html5&logoColor=white" height="20"/><img alt="" src="https://img.shields.io/badge/css3-%231572B6.svg?style=for-the-badge&logo=css3&logoColor=white" height="20"/><img alt="" src="https://img.shields.io/badge/vite-%23646CFF.svg?style=for-the-badge&logo=vite&logoColor=white" height="20"/>
-  
-#### 🎧 VIENA PLAYER 
 
-It combines smooth UI interactions, cover-driven theming, and a living waveform visualizer designed to *breathe* rather than aggressively react.
+#### 🎧 YOPY Player   
 
-Built with simplicity, performance, and atmosphere in mind — ideal for radio stations, ambient music, and long-form audio streams.   
+YOPY Player is a lightweight, modern web audio player with a smooth animated waveform visualizer.
+Designed for elegance, performance, and low-end device compatibility, it delivers a premium listening experience without unnecessary overhead.   
 
-#### ✨ Features
+Built with pure JavaScript, Web Audio API, and Canvas, YOPY focuses on fluid UI transitions, responsive controls, and intelligent performance scaling.       
 
-#### 🔊 Audio & Playback
-- HTML5 Audio with lazy `AudioContext` initialization
-- Play / pause toggle with proper suspended context handling
-- Track navigation (previous / next) with looped playlist
-- Keyboard controls:
-  - `Space` — Play / Pause  
-  - `← / →` — Previous / Next track
-- Preload enabled with cross-origin support
-- No autoplay (user-gesture safe)
+#### 🎵 Audio Player   
+```
+Play / Pause, Next, Previous controls   
+Keyboard shortcuts   
+Space — Play / Pause   
+← / → — Track navigation   
+```
 
-#### 🎵 Track & Metadata
-- JSON-based playlist loading (`tracks.json`)
-- Dynamic track title & artist display
-- Instant track switching without page reload
-- Per-track cover artwork
+- Automatic next track on end   
+- Track metadata support (title, artist, cover, accent color)   
+- Smooth cover art fade transitions   
+- Centralized player state via data-player-state   
 
-#### 🎨 Visual Experience
-- Dominant color extraction from cover images
-- Smooth color interpolation between tracks
-- Waveform color adapts automatically to artwork
-- Soft glow and gradient rendering
+#### 🌊 Waveform Visualizer (YOPY Wave)   
 
-#### 🌊 Waveform Visualizer  
-**VIENA Waveform**
-- Ambient waveform animation (non-aggressive, radio-friendly)
-- Heart-rate–inspired pulse system
-- Center-weighted dynamics with airy edges
-- Rounded bars with subtle shadows
-- FPS-limited rendering for low CPU usage
-- Fully responsive canvas resizing
+- Real-time audio-reactive waveform   
+- Soft “breathing” idle animation when audio is paused   
+- Bass-responsive kick amplification   
+- Rounded bars with symmetrical center shaping   
+- Smooth color interpolation between tracks   
+- Canvas-based rendering (no external libraries)   
 
-#### 💿 Cover Interaction
-- Rotating cover animation during playback
-- Smooth reset on track change
-- Visual sync with play / pause state
+#### 📱 Performance & Device Awareness   
 
-#### 🧠 UX Details
-- Cursor-aware hover effects on play button
-- Smooth animation state recovery
-- Input-safe keyboard handling (won’t hijack typing)
-- Minimal DOM footprint
+- Automatic detection of ultra-low-end devices   
+- Visualizer disabled on weak hardware to save battery & CPU   
+- Reduced redraw frequency for idle mode   
+- Optimized FFT size and smoothing for mobile browsers   
+
+#### 🧠 Smart Behavior   
+
+- Visualizer pauses when the tab is hidden   
+- Resumes automatically when playback continues   
+- AudioContext resumes safely after browser suspension   
+- Adaptive visual behavior depending on playback state
+
+#### 🧩 Modular Architecture   
+
+- player.js — Audio logic, controls, UI state   
+- wave.js — Independent visualizer engine   
+- tracks.json — customize radio stations / covers / wave colours    
+- Easily extensible and framework-agnostic   
+- Clean separation of concerns   
